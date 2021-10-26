@@ -1,0 +1,37 @@
+@model HalisahaModel
+
+
+@if (Model.Halisahas.Count == 0)
+{
+    <div class="container">
+        <h2>Bu şehirde halı saha bulunmamaktadır.</h2>
+    </div>
+
+}
+
+<div style="margin-top: 100px; " class="container c">
+    <table class="table table-striped sort-table table-hover">
+        <thead>
+            <tr>
+                <th>Halısahalar</th>
+                <th>Puan</th>
+                <th>Fiyat</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Halisahas)
+            {
+                <tr style="align-items: center;">
+                    <td><a href="/halisaha/@item.City/@item.Id/@item.Slug">@item.Name</a></td>
+                    <td>@item.AvgPoint</td>
+                    <td>@item.Price</td>
+
+                </tr>
+
+            }
+
+
+        </tbody>
+    </table>
+</div>

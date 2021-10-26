@@ -1,0 +1,323 @@
+@using System.Globalization
+@model EditHalisahaModel
+
+<div>
+    <div class="rezervation-page-cover">
+        <div class="rezervation-cover">
+            <div class="rezervation-info">
+                <h2>@ViewBag.Url.Name</h2>
+                <span>Halı saha puanı: @ViewBag.AvgPoint</span>
+                <p style="text-align:left;">Halı saha mesajı: <span class="yellow">@ViewBag.Url.Content</span></p>
+            </div>
+            <div class="rezervation-table-div">
+                <table class="table table-bordered rezervation-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Saat/Tarih</th>
+                            <th scope="col">@ViewBag.Dates[0]</th>
+                            <th scope="col">@ViewBag.Dates[1]</th>
+                            <th scope="col">@ViewBag.Dates[2]</th>
+                            <th scope="col">@ViewBag.Dates[3]</th>
+                            <th scope="col">@ViewBag.Dates[4]</th>
+                            <th scope="col">@ViewBag.Dates[5]</th>
+                            <th scope="col">@ViewBag.Dates[6]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            var culture = new CultureInfo("de-DE");
+                            DateTime date = DateTime.Now;
+
+                        }
+                        @foreach (var item in ViewBag.aa)
+                        {
+
+                            <tr>
+                                <td >@item[0].time</td>
+                                @foreach (var item2 in item)
+                                {
+                                    @* (ViewBag.Dates[0] == item2.date) && (int.Parse(item2.time.Split("-")[0].Split(":").ToString()) <
+                                        int.Parse(date.ToString(culture).Split(".")[0].ToString())) *@
+
+                                    @if (item2.isEmpty)
+                                    {
+                                        <td class="rezervation-table-data-full">DOLU</td>
+                                    }
+                                    else
+                                    {
+                                        <td class="rezervation-table-data">
+                                            <a class="table-link"
+                                    href="/halisaha/@ViewBag.Url.City/@ViewBag.Url.Id/@ViewBag.Url.Slug/@item2.date/@item2.time/reservation">@ViewBag.Url.Price</a>
+                                        </td>
+                                    }
+
+
+
+                                }
+                            </tr>
+
+                        }
+
+                    
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="rezervation-slider-prop">
+            <div class="rezervation-slider" style="margin-bottom: 20px;">
+                <div>                 
+                    <div >
+                        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                @{
+
+                                }
+                                @for (int i = 0; i < @ViewBag.Images.Count; i++)
+                                {
+
+                                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="@i" class="active"
+                                    aria-current="true" aria-label="Slide "></button>
+                                }
+
+                                @* <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                                    aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                                    aria-label="Slide 3"></button> *@
+                            </div>
+                            <div class="carousel-inner">
+                                @if(ViewBag.Images.Count == 0)
+                                {
+                                    <div class="carousel-item active ">
+                                            <img src="~/halisahaImage/default.jpg" class="d-block w-100" alt="...">
+
+                                        </div>
+                                }
+                                @for (int i = 0; i < @ViewBag.Images.Count; i++)
+                                {
+                                    @if (i == 0)
+                                    {
+                                        <div class="carousel-item active ">
+                                            <img src="~/halisahaImage/@ViewBag.Images[i]" class="d-block w-100" alt="...">
+
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="carousel-item ">
+                                            <img src="~/halisahaImage/@ViewBag.Images[i]" class="d-block w-100" alt="...">
+
+                                        </div>
+                                    }
+
+                                }
+
+
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="rezervation-prop">
+                @foreach (var property in ViewBag.Properties)
+                {
+                    @if((Model.SelectedProperties.Any(i=>i==property.PropertyName)))
+                    {
+                        <div>
+                            <i style="color: green; font-size:20px;" class="fas fa-check-square"></i>
+                        @property.PropertyName
+                        </div>
+                        
+                    }
+                    else {
+                        <div>
+                            <i style="color: red;font-size:20px;" class="fas fa-window-close"></i>  
+                        @property.PropertyName
+                        </div>
+                        
+                       
+                    }
+                  
+                }
+              
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#propertyModal">
+    Özellik ekle
+</button>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#priceModal">
+    priceModal
+</button>
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#imageModal">
+    imageModal
+</button>
+
+
+
+
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#messageModal">
+    messageModal
+</button>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="messageModal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="messageModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="messageModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form asp-controller="Halisaha" asp-action="UpdateHalisahaMessage">
+                    <div>
+
+                        <textarea asp-for="Content"></textarea>
+                    </div>
+
+
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="imageModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form asp-controller="Halisaha" asp-action="UpdateHalisahaImages" enctype="multipart/form-data">
+                    <div>
+
+                        <input type="file" name="Imagefile">
+                    </div>
+
+
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="priceModal" tabindex="-1" aria-labelledby="priceModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="priceModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form asp-controller="Halisaha" asp-action="UpdateHalisahaPrice">
+                    <div>
+
+                        <input asp-for="Price">
+                    </div>
+
+
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="propertyModal" tabindex="-1" aria-labelledby="propertyModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="propertyModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form asp-controller="Halisaha" asp-action="AddProperties" method="POST">
+
+
+                    <div class="row">
+                        <div class="col-md-4">
+
+                            @foreach (var property in ViewBag.Properties)
+                            {
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" name="selectedPropertiess"
+                                    value="@property.PropertyName" id="@property.PropertyName"
+                                    @(Model.SelectedProperties.Any(i=>i==property.PropertyName)?"checked":"")>
+                                    <label class="custom-control-label"
+                                    for="@property.PropertyName">@property.PropertyName</label>
+                                </div>
+                            }
+
+                            <hr>
+
+
+                        </div>
+                        @* <div class="form-group row">
+                            <div class="col-sm-10 offset-sm-2">
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                            </div>
+                            </div> *@
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

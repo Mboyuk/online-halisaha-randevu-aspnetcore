@@ -1,0 +1,135 @@
+@model RezervationListModel
+
+@{
+    int o = 0;   
+}
+
+<div class="container">
+
+    <table class="table sort-table pretranstable">
+        <thead>
+            <tr>
+
+                <th>halisaha</th>
+                <th>tarih</th>
+                <th>saat</th>
+                <th>yorum</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Rezervations)
+            {
+               
+                <tr>
+                    
+                    <td>@ViewBag.Names[o]</td>
+                    <td>@item.Tarih</td>
+                    <td>@item.Saat</td>
+                    <td>
+                        <button id="@item.HalisahaId" type="button" class="btnfor btn btn-primary arabtn smallpad-hover" data-bs-toggle="modal"
+                        data-bs-target="#commentModal">
+                            Yorum
+                        </button>
+                    </td>
+                    
+
+
+                </tr>
+                @(o++)
+               
+            }
+
+
+        </tbody>
+    </table>
+
+</div>
+<div class="modal fade" id="commentModal" tabindex="-1" aria-labelledby="commentModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="commentModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form asp-controller="Auth" asp-action="PreTransaction" method="post">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Puan:</label>
+                        <span id="1" class="ok fa fa-star star"></span>
+                        <span id="2" class="ok fa fa-star star"></span>
+                        <span id="3" class="ok fa fa-star star"></span>
+                        <span id="4" class="ok fa fa-star star"></span>
+                        <span id="5" class="ok fa fa-star star"></span>
+                        <input style="display: none;" type="text" name="puan" id="puan" value="0">
+                        <input style="display: none;" type="text" name="halisahaId" id="halisahaId" value="">
+
+                    </div>
+                    <div>
+                        puan
+
+                    </div>
+                    <div>
+                        @* <input asp-for="CommentModel.Point"> *@
+
+                    </div>
+                    <div>
+                        <textarea asp-for="CommentModel.Comment"></textarea>
+                    </div>
+
+
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    const btn = document.getElementsByClassName("btnfor");
+    const btns = [].slice.call(btn);
+
+    const textValue2 = document.getElementById("halisahaId")
+    btns.forEach(element => {
+        element.addEventListener('click', (e) => {
+
+            console.log(element.id)
+            textValue2.value = element.id
+        })
+    })
+    const yildiz = document.getElementsByClassName("ok");
+    const textValue = document.getElementById("puan")
+    const lbl = document.getElementById("puan1")
+    const stars = [].slice.call(yildiz);
+    console.log(yildiz[0])
+    stars.forEach((element, index) => {
+
+        element.addEventListener('click', (e) => {
+            console.log(index)
+            textValue.value = index + 1;
+            belirle(index)
+            console.log(element)
+        })
+
+    });
+    function belirle(index) {
+        for (let i = 0; i < index + 1; i++) {
+            stars[i].style.color = "yellow";
+        }
+        for (let j = 4; j > index; j--) {
+            stars[j].style.color = "black";
+        }
+
+    }
+</script>
+@section Scripts
+{
+    <script src="/modules/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="/modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+
+}

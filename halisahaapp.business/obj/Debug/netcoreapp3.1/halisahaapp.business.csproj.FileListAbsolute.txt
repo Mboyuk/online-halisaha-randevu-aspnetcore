@@ -1,0 +1,14 @@
+C:\Users\boyuk\OneDrive\Masaüstü\halisahaapp\halisahaapp.business\bin\Debug\netcoreapp3.1\halisahaapp.business.deps.json
+C:\Users\boyuk\OneDrive\Masaüstü\halisahaapp\halisahaapp.business\bin\Debug\netcoreapp3.1\halisahaapp.business.dll
+C:\Users\boyuk\OneDrive\Masaüstü\halisahaapp\halisahaapp.business\bin\Debug\netcoreapp3.1\halisahaapp.business.pdb
+C:\Users\boyuk\OneDrive\Masaüstü\halisahaapp\halisahaapp.business\bin\Debug\netcoreapp3.1\halisahaapp.data.dll
+C:\Users\boyuk\OneDrive\Masaüstü\halisahaapp\halisahaapp.business\bin\Debug\netcoreapp3.1\halisahaapp.entity.dll
+C:\Users\boyuk\OneDrive\Masaüstü\halisahaapp\halisahaapp.business\bin\Debug\netcoreapp3.1\halisahaapp.entity.pdb
+C:\Users\boyuk\OneDrive\Masaüstü\halisahaapp\halisahaapp.business\bin\Debug\netcoreapp3.1\halisahaapp.data.pdb
+C:\Users\boyuk\OneDrive\Masaüstü\halisahaapp\halisahaapp.business\obj\Debug\netcoreapp3.1\halisahaapp.business.AssemblyInfoInputs.cache
+C:\Users\boyuk\OneDrive\Masaüstü\halisahaapp\halisahaapp.business\obj\Debug\netcoreapp3.1\halisahaapp.business.AssemblyInfo.cs
+C:\Users\boyuk\OneDrive\Masaüstü\halisahaapp\halisahaapp.business\obj\Debug\netcoreapp3.1\halisahaapp.business.csproj.CoreCompileInputs.cache
+C:\Users\boyuk\OneDrive\Masaüstü\halisahaapp\halisahaapp.business\obj\Debug\netcoreapp3.1\halisahaapp.business.csproj.CopyComplete
+C:\Users\boyuk\OneDrive\Masaüstü\halisahaapp\halisahaapp.business\obj\Debug\netcoreapp3.1\halisahaapp.business.dll
+C:\Users\boyuk\OneDrive\Masaüstü\halisahaapp\halisahaapp.business\obj\Debug\netcoreapp3.1\halisahaapp.business.pdb
+C:\Users\boyuk\OneDrive\Masaüstü\halisahaapp\halisahaapp.business\obj\Debug\netcoreapp3.1\halisahaapp.business.csprojAssemblyReference.cache

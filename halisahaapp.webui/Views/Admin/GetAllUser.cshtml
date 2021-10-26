@@ -1,0 +1,27 @@
+@model IQueryable<User>
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>İsim</th>
+                <th>Soyisim</th>
+                <th>Eposta</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.FirstName</td>
+                    <td>@item.LastName</td>
+                    <td>@item.Email</td>
+
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+</div>

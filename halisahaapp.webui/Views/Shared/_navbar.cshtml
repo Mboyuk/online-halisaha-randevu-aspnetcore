@@ -1,0 +1,93 @@
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<User> UserManager
+
+<nav class="navbar navbar-expand-lg navbar-light bg-success sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">
+      <img src="~/logo/logo11.jpg">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        @if (User.Identity.IsAuthenticated)
+        {
+          @* <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/Ders/List">Dersler</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="/Ogrenci/create">Ogrenci oluştur</a>
+            </li> *@
+
+        }
+
+        @* <li class="nav-item">
+          <a class="nav-link disabled">Disabled</a>
+          </li> *@
+      </ul>
+      @* <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+        </form> *@
+      <ul class="navbar-nav ml-auto">
+        @* @User.IsInRole("admin") *@
+
+        @if (User.Identity.IsAuthenticated)
+        {
+          @* @UserManager.GetUserId(User) *@
+          <div style="margin-right: 40px;" class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+            data-bs-toggle="dropdown" aria-expanded="false">
+              @User.Identity.Name
+
+            </button>
+
+            <ul style="background-color: green;" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="/auth/pre-transaction">Önceki işlemler</a></li>
+              @if(User.IsInRole("admin"))
+              {
+                <li><a class="dropdown-item" href="/admin/AddProperty">Özellik Ekle</a></li>
+
+              }
+              @if (User.IsInRole("manager"))
+              {
+
+                <li><a class="dropdown-item" href="/halisaha/@UserManager.GetUserId(User)/editHalisaha">Halısaham</a></li>
+                <li><a class="dropdown-item" href="/halisaha/register/control">Halısaha Oluştur</a></li>
+              }
+              @if (User.IsInRole("user"))
+              {
+                <li><a class="dropdown-item" href="#">Halısaha Kayıt Ol</a></li>
+              }
+
+              <li><a class="dropdown-item" href="/auth/editProfile">Profil</a></li>
+              <li><a class="dropdown-item" href="/auth/logout">Oturum kapat</a></li>
+            </ul>
+          </div>
+          @* <li class="nav-item">
+            <a href="/auth/manage" class="nav-link">
+            @User.Identity.Name
+            </a>
+            </li>
+            <li class="nav-item">
+            <a href="/auth/logout" class="nav-link">Logout</a>
+            </li> *@
+        }
+        else
+        {
+          <ul class="guest-links">
+            <li class="nav-item">
+              <a href="/auth/login" class="link default-hover">Giriş</a>
+            </li>
+            <li class="nav-item">
+              <a href="/auth/register" class="link default-hover">Üye Ol</a>
+            </li>
+          </ul>
+
+        }
+      </ul>
+    </div>
+  </div>
+</nav>

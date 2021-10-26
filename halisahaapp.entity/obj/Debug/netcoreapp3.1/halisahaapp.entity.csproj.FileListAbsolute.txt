@@ -1,0 +1,9 @@
+C:\Users\boyuk\OneDrive\Masaüstü\halisahaapp\halisahaapp.entity\bin\Debug\netcoreapp3.1\halisahaapp.entity.deps.json
+C:\Users\boyuk\OneDrive\Masaüstü\halisahaapp\halisahaapp.entity\bin\Debug\netcoreapp3.1\halisahaapp.entity.dll
+C:\Users\boyuk\OneDrive\Masaüstü\halisahaapp\halisahaapp.entity\bin\Debug\netcoreapp3.1\halisahaapp.entity.pdb
+C:\Users\boyuk\OneDrive\Masaüstü\halisahaapp\halisahaapp.entity\obj\Debug\netcoreapp3.1\halisahaapp.entity.AssemblyInfoInputs.cache
+C:\Users\boyuk\OneDrive\Masaüstü\halisahaapp\halisahaapp.entity\obj\Debug\netcoreapp3.1\halisahaapp.entity.AssemblyInfo.cs
+C:\Users\boyuk\OneDrive\Masaüstü\halisahaapp\halisahaapp.entity\obj\Debug\netcoreapp3.1\halisahaapp.entity.csproj.CoreCompileInputs.cache
+C:\Users\boyuk\OneDrive\Masaüstü\halisahaapp\halisahaapp.entity\obj\Debug\netcoreapp3.1\halisahaapp.entity.dll
+C:\Users\boyuk\OneDrive\Masaüstü\halisahaapp\halisahaapp.entity\obj\Debug\netcoreapp3.1\halisahaapp.entity.pdb
+C:\Users\boyuk\OneDrive\Masaüstü\halisahaapp\halisahaapp.entity\obj\Debug\netcoreapp3.1\halisahaapp.entity.csprojAssemblyReference.cache

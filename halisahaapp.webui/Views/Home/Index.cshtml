@@ -1,0 +1,21 @@
+@model List<City>
+
+<div style="text-align: center;" class="container home-content ">
+    <h4>Halisahacim.com ile halısahan sadece birkaç tık uzaklıkta! Şehirinizi seçip randevu alın</h4>
+</div>
+<div style="text-align: center;" class="container  ">
+    <h5> Mevcut Halisahalar: Karaman(70)</h5>
+</div>
+<div class="city-cover container">
+    @foreach (var item in Model)
+    {
+        <div class="plaka-name-cover">
+            <a class="link" href="/halisaha/@item.Name">
+                <div class="plaka-no">
+                    <span> @item.PlakaNo </span>
+                </div>
+                <span class="city-name"> @item.Name </span>
+            </a>
+        </div>
+    }
+</div>

@@ -1,0 +1,15 @@
+C:\Users\boyuk\OneDrive\Masaüstü\halisahaapp\halisahaapp.data\bin\Debug\netcoreapp3.1\halisahaapp.data.deps.json
+C:\Users\boyuk\OneDrive\Masaüstü\halisahaapp\halisahaapp.data\bin\Debug\netcoreapp3.1\halisahaapp.data.runtimeconfig.json
+C:\Users\boyuk\OneDrive\Masaüstü\halisahaapp\halisahaapp.data\bin\Debug\netcoreapp3.1\halisahaapp.data.runtimeconfig.dev.json
+C:\Users\boyuk\OneDrive\Masaüstü\halisahaapp\halisahaapp.data\bin\Debug\netcoreapp3.1\halisahaapp.data.dll
+C:\Users\boyuk\OneDrive\Masaüstü\halisahaapp\halisahaapp.data\bin\Debug\netcoreapp3.1\halisahaapp.data.pdb
+C:\Users\boyuk\OneDrive\Masaüstü\halisahaapp\halisahaapp.data\bin\Debug\netcoreapp3.1\halisahaapp.entity.dll
+C:\Users\boyuk\OneDrive\Masaüstü\halisahaapp\halisahaapp.data\bin\Debug\netcoreapp3.1\halisahaapp.entity.pdb
+C:\Users\boyuk\OneDrive\Masaüstü\halisahaapp\halisahaapp.data\obj\Debug\netcoreapp3.1\halisahaapp.data.AssemblyInfoInputs.cache
+C:\Users\boyuk\OneDrive\Masaüstü\halisahaapp\halisahaapp.data\obj\Debug\netcoreapp3.1\halisahaapp.data.AssemblyInfo.cs
+C:\Users\boyuk\OneDrive\Masaüstü\halisahaapp\halisahaapp.data\obj\Debug\netcoreapp3.1\halisahaapp.data.csproj.CoreCompileInputs.cache
+C:\Users\boyuk\OneDrive\Masaüstü\halisahaapp\halisahaapp.data\obj\Debug\netcoreapp3.1\halisahaapp.data.csproj.CopyComplete
+C:\Users\boyuk\OneDrive\Masaüstü\halisahaapp\halisahaapp.data\obj\Debug\netcoreapp3.1\halisahaapp.data.dll
+C:\Users\boyuk\OneDrive\Masaüstü\halisahaapp\halisahaapp.data\obj\Debug\netcoreapp3.1\halisahaapp.data.pdb
+C:\Users\boyuk\OneDrive\Masaüstü\halisahaapp\halisahaapp.data\obj\Debug\netcoreapp3.1\halisahaapp.data.genruntimeconfig.cache
+C:\Users\boyuk\OneDrive\Masaüstü\halisahaapp\halisahaapp.data\obj\Debug\netcoreapp3.1\halisahaapp.data.csprojAssemblyReference.cache

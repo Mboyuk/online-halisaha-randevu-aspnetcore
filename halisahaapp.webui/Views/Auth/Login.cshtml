@@ -1,0 +1,46 @@
+@model LoginModel
+
+<div class="container form">
+    <div class="mb-4 mt-3" style="text-align: center;">
+        <h1><i class="fas fa-sign-in-alt"></i>Giriş Yap</h1>
+    </div>
+
+
+  
+            <form asp-controller="Auth" asp-action="Login" method="POST">
+                <input type="hidden" name="ReturnUrl" value="@Model.ReturnUrl">
+                <div asp-validation-summary="All" class="text-danger"></div>
+
+                <div class="container">
+                    <label asp-for="Email" class="col-sm-2 col-form-label"></label>
+                    <div class="input-group mb-2 mt-1">
+                        <input class="textbox-green form-control" asp-for="Email" placeholder="Email Giriniz">
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="container">
+                    <label asp-for="Password" class="col-sm-2 col-form-label"></label>
+                    <div class="input-group mb-2 mt-1">
+                        <input class="textbox-green form-control" asp-for="Password" placeholder="Şifre giriniz">
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+                <div class="container">
+                    <div class="input-group mb-2 mt-1">
+                        <button type="submit" class="default-hover w-100">Giriş Yap</button>
+                      
+                    </div>
+                </div>
+            </form>
+            <p class="container my-1 mt-3">Hesabınız yok mu? <a class="link" href="/auth/register"> Kaydol </a></p>
+            <p class="container my-1 mt-3">veya <a class="link" href="/auth/forgotpassword">Şifrenmi unuttum</a></p>
+
+</div>
+@section Scripts
+{
+<script src="/modules/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="/modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+
+}

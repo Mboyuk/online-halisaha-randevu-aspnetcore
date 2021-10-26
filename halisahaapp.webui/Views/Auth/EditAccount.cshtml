@@ -1,0 +1,94 @@
+@model EditAccountModel
+
+
+
+
+<div>
+    <div class="container profile-cover">
+        <div class="img-list-cover">
+            <div>
+                @if (ViewBag.Profile.ImgUrl == null)
+                {
+                    <img style="border-radius: 50%;" width="150px" src="~/img/default.jpg" />
+                }
+                else
+                {
+                    <img style="border-radius: 50%;" width="200px" src="~/img/@ViewBag.Profile.ImgUrl" />
+                }
+            </div>
+            <br>
+            <p>@ViewBag.Profile.FirstName</p>
+            <div class="list-cover">
+              
+                    <li class=" list-group-item"><a href="/auth/editprofile">Profil</a></li>
+                    <li class=" list-group-item"><a href="/auth/editphoto">Fotoğraf</a></li>
+                    <li class="active list-group-item"><a href="/auth/editaccount">Hesap</a></li>
+               
+            </div>
+        </div>
+        <div class="edit-profile-info-cover">
+            <div class="edit-profile-info">
+                <div>
+                    <h2>Şifre Değiştir</h2>
+                    <form asp-controller="Auth" asp-action="EditAccount" method="POST">
+
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <label asp-for="Email" class="col-sm-2 col-form-label"></label>
+                        <div class="input-group mb-2 mt-1">
+
+                            <div class="col-sm-10">
+                                <input class="form-control" asp-for="Email" disabled>
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                        </div>
+                         <label asp-for="CurrentPassword" class="col-sm-2 col-form-label"></label>
+                        <div class="input-group mb-2 mt-1">
+                           
+                            <div class="col-sm-10">
+                                <input class="form-control" asp-for="CurrentPassword">
+                                <span asp-validation-for="CurrentPassword" class="text-danger"></span>
+                            </div>
+                        </div>
+                          <label asp-for="NewPassword" class="col-sm-2 col-form-label"></label>
+                        <div class="input-group mb-2 mt-1">
+                          
+                            <div class="col-sm-10">
+                                <input class="form-control" asp-for="NewPassword">
+                                <span asp-validation-for="NewPassword" class="text-danger"></span>
+                            </div>
+                        </div>
+                         <label asp-for="ReNewPassword" class="col-sm-2 col-form-label"></label>
+                        <div class="input-group mb-2 mt-1">
+                           
+                            <div class="col-sm-10">
+                                <input class="form-control" asp-for="ReNewPassword">
+                                <span asp-validation-for="ReNewPassword" class="text-danger"></span>
+                            </div>
+                        </div>
+
+
+                        <div class="input-group mb-2 mt-1">
+                            <div class="col-sm-10 offset-sm-2">
+                                <input type="submit" class="default-hover w-100" value="Güncelle">
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+@section Scripts
+{
+<script src="/modules/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="/modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+
+}
