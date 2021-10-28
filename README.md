@@ -1,4 +1,4 @@
-# online-halisaha-randevu-aspnetcore
+# Online Halı Saha Randevu Sistemi
 Türkiyenin 81 ilinde kayıt yaptıran tüm halı sahaları görüntüleyip randevu alabileceğiniz bir web sitesidir.
 
 # Kullanılan Teknolojiler
